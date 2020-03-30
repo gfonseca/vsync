@@ -27,26 +27,26 @@ echo "Emulation Station Script + retroarch configuration script"
 echo "Starting instalation" 
 
 
-#echo "Instaling Emulation Station"
-#install_emulationstation $BASEDIR $ES_REPO_URL $ES_CLONE_DIR $ES_CONFIG_DIR $ES
-#if [ $? -ne 0 ]; then
-#    echo "Failed to install Emulaton Station"
-#    exit 1
-#fi
+echo "Instaling Emulation Station"
+install_emulationstation $BASEDIR $ES_REPO_URL $ES_CLONE_DIR $ES_CONFIG_DIR $ES
+if [ $? -ne 0 ]; then
+   echo "Failed to install Emulaton Station"
+   exit 1
+fi
 
-#echo "Instaling Pixel Theme"
-#install_pixel_theme $PIXEL_REPO_URL $PIXEL_THEME_DIR
-#if [ $? -ne 0 ]; then
-#    echo "Failed to install Pixel Theme"
-#    exit 1
-#fi
+echo "Instaling Pixel Theme"
+install_pixel_theme $PIXEL_REPO_URL $PIXEL_THEME_DIR
+if [ $? -ne 0 ]; then
+   echo "Failed to install Pixel Theme"
+   exit 1
+fi
 
-#echo "Instaling Retroarch"
-#install_retroarch $RA_REPO_URL $RA_CLONE_DIR
-#if [ $? -ne 0 ]; then
-#    echo "Failed to install Retroarch"
-#    exit 1
-#fi
+echo "Instaling Retroarch"
+install_retroarch $RA_REPO_URL $RA_CLONE_DIR
+if [ $? -ne 0 ]; then
+   echo "Failed to install Retroarch"
+   exit 1
+fi
 
 echo "Instaling Retroarch core Picodrive"
 install_picodrive  $PICO_REPO_URL $PICO_CLONE_DIR $RA_CORE_DIR

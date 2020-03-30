@@ -7,6 +7,7 @@
 $ git clone github.com/gfonseca/vsync
 $ cd vsync
 $ chmod +x install.sh
+$ ./install.sh
 $ emulationstation
 ```
 
