@@ -9,7 +9,7 @@ install_picodrive(){
 	echo "> Cloning Pico Drive"
 
 	rm -rf $PICO_CLONE_DIR
-	git clone -C / $PICO_REPO_URL $PICO_CLONE_DIR && cd $PICO_CLONE_DIR && git submodule update --init
+	git -C / clone $PICO_REPO_URL $PICO_CLONE_DIR && cd $PICO_CLONE_DIR && git submodule update --init
 	if [ $? -ne 0 ] ; then
 		echo "Failed to clone git repository for Pico Drive" 
 		return 1
