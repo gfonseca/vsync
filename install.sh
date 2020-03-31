@@ -11,8 +11,8 @@ PIXEL_THEME_DIR=$ES_THEME_DIR/pixel/
 PIXEL_REPO_URL=https://github.com/RetroPie/es-theme-pixel
 
 RA_REPO_URL=https://github.com/libretro/RetroArch.git
-RA_CLONE_DIR=/tmp/libretro
-RA_CONF_DIR=$HOME/.config/retroarch
+RA_CLONE_DIR=/tmp/retroarch/
+RA_CONF_DIR=$HOME/.config/retroarch/
 RA_CORE_DIR=$RA_CONF_DIR/cores/
 
 PICO_REPO_URL=https://github.com/libretro/picodrive
@@ -54,3 +54,5 @@ if [ $? -ne 0 ]; then
     echo "Failed to install Picodrive"
     exit 1
 fi
+
+rm -rf $ES_CLONE_DIR
