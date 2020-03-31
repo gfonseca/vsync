@@ -10,14 +10,14 @@ install_emulationstation(){
 	echo "> Cloning Emulation Station to $ES_CLONE_DIR"
 
 	rm -rf $ES_CLONE_DIR
-	git clone -C / $ES_REPO_URL $ES_CLONE_DIR
+	git -C / clone $ES_REPO_URL $ES_CLONE_DIR
 
 	if [ $? -ne 0 ] ; then
 		echo "Failed to clone git repository for Emulation Station" 
 		return 1
 	fi
 
-	sudo apt install -y \
+	apt install -y \
 	 libsdl2-dev \
 	 libboost-system-dev \
 	 libboost-filesystem-dev \
@@ -40,15 +40,18 @@ install_emulationstation(){
 		return 1
 	fi
 
+	cd $ES_CLONE_DIR 
+
 	echo "> Building..."
-	cd $ES_CLONE_DIR && cmake ./ && make
+	# cmake ./ && make
 	if [ $? -ne 0 ] ; then
 		echo "Failed in Building process" 
 		return 1
 	fi
 
-	cd $ES_CLONE_DIR && chmod +x ./emulationstation && sudo cp -rfv ./emulationstation /usr/local/bin/emulationstation
+	# chmod +x ./emulationstation && cp -rfv ./emulationstation /usr/local/bin/emulationstation
 	mkdir -p $ES_CONFIG_DIR && cp $BASEDIR/conf/es_systems.cfg $ES_CONFIG_DIR
 	rm -rf $ES_CLONE_DIR
+	echo "> Emulation Station done"
 	return 0
 }
