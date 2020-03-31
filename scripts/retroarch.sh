@@ -10,7 +10,7 @@ install_retroarch(){
 	echo "> Cloning LibRetro"
 
 	rm -rf $RA_CLONE_DIR
-	git clone $RA_REPO_URL $RA_CLONE_DIR
+	git clone -C / $RA_REPO_URL $RA_CLONE_DIR
 
 	cd $RA_CLONE_DIR
 	./configure

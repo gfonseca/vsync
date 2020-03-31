@@ -7,6 +7,6 @@ install_pixel_theme(){
     rm -rf $THEME_CLONE_DIR
     mkdir -p $THEME_CLONE_DIR
     echo "> Instaling theme Pixel"
-    git clone https://github.com/RetroPie/es-theme-pixel $THEME_CLONE_DIR
+    git clone -C / https://github.com/RetroPie/es-theme-pixel $THEME_CLONE_DIR
     echo "> Pixel done"
 }
