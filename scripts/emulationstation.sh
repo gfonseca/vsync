@@ -10,7 +10,7 @@ install_emulationstation(){
 	echo "> Cloning Emulation Station to $ES_CLONE_DIR"
 
 	rm -rf $ES_CLONE_DIR
-	git clone -C / $ES_REPO_URL $ES_CLONE_DIR
+	git -C / clone $ES_REPO_URL $ES_CLONE_DIR
 
 	if [ $? -ne 0 ] ; then
 		echo "Failed to clone git repository for Emulation Station" 
