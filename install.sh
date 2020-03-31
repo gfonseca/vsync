@@ -18,11 +18,22 @@ RA_CORE_DIR=$RA_CONF_DIR/cores/
 PICO_REPO_URL=https://github.com/libretro/picodrive
 PICO_CLONE_DIR=/tmp/picodrive/
 
+SNES9X_REPO_URL=https://github.com/libretro/snes9x2010
+SNES9X_CLONE_DIR=/tmp/snes9x/
+
+VBA_REPO_URL=https://github.com/libretro/vba-next
+VBA_CLONE_DIR=/tmp/vba_next
+
+PSX_REPO_URL=https://github.com/libretro/beetle-psx-libretro
+PSX_CLONE_DIR=/tmp/beetle-psx
+
 source $BASEDIR/scripts/emulationstation.sh
 source $BASEDIR/scripts/retroarch.sh
 source $BASEDIR/scripts/pixel-theme.sh
 source $BASEDIR/scripts/picodrive.sh
-source $BASEDIR/scripts/helper.sh
+source $BASEDIR/scripts/snes9x2010.sh
+source $BASEDIR/scripts/vba_next.sh
+source $BASEDIR/scripts/beetle-psx.sh
 
 
 echo "Emulation Station Script + retroarch configuration script"
@@ -53,6 +64,27 @@ echo "Instaling Retroarch core Picodrive"
 install_picodrive  $PICO_REPO_URL $PICO_CLONE_DIR $RA_CORE_DIR
 if [ $? -ne 0 ]; then
     echo "Failed to install Picodrive"
+    exit 1
+fi
+
+echo "Instaling Retroarch core SNES9X"
+install_snes9x2010 $SNES9X_REPO_URL $SNES9X_CLONE_DIR $RA_CORE_DIR
+if [ $? -ne 0 ]; then
+    echo "Failed to install SNES9X"
+    exit 1
+fi
+
+echo "Instaling Retroarch core vba_next"
+install_vba_next $VBA_REPO_URL $VBA_CLONE_DIR $RA_CORE_DIR
+if [ $? -ne 0 ]; then
+    echo "Failed to install vba_next"
+    exit 1
+fi
+
+echo "Instaling Retroarch core beetle-psx"
+install_beetle-psx $PSX_REPO_URL $PSX_CLONE_DIR $RA_CORE_DIR
+if [ $? -ne 0 ]; then
+    echo "Failed to install beetle-psx"
     exit 1
 fi
 

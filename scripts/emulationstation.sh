@@ -43,13 +43,13 @@ install_emulationstation(){
 	cd $ES_CLONE_DIR 
 
 	echo "> Building..."
-	# cmake ./ && make
+	cmake ./ && make
 	if [ $? -ne 0 ] ; then
 		echo "Failed in Building process" 
 		return 1
 	fi
 
-	# chmod +x ./emulationstation && cp -rfv ./emulationstation /usr/local/bin/emulationstation
+	chmod +x ./emulationstation && cp -rfv ./emulationstation /usr/local/bin/emulationstation
 	mkdir -p $ES_CONFIG_DIR && cp $BASEDIR/conf/es_systems.cfg $ES_CONFIG_DIR
 	rm -rf $ES_CLONE_DIR
 	echo "> Emulation Station done"
