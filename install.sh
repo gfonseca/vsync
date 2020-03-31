@@ -42,18 +42,18 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
-# echo "Instaling Retroarch"
-# install_retroarch $RA_REPO_URL $RA_CLONE_DIR
-# if [ $? -ne 0 ]; then
-#    echo "Failed to install Retroarch"
-#    exit 1
-# fi
+echo "Instaling Retroarch"
+install_retroarch $RA_REPO_URL $RA_CLONE_DIR
+if [ $? -ne 0 ]; then
+   echo "Failed to install Retroarch"
+   exit 1
+fi
 
-# echo "Instaling Retroarch core Picodrive"
-# install_picodrive  $PICO_REPO_URL $PICO_CLONE_DIR $RA_CORE_DIR
-# if [ $? -ne 0 ]; then
-#     echo "Failed to install Picodrive"
-#     exit 1
-# fi
+echo "Instaling Retroarch core Picodrive"
+install_picodrive  $PICO_REPO_URL $PICO_CLONE_DIR $RA_CORE_DIR
+if [ $? -ne 0 ]; then
+    echo "Failed to install Picodrive"
+    exit 1
+fi
 
-rm -rf $ES_CLONE_DIR
+echo "> All done"

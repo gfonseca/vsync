@@ -5,10 +5,9 @@ install_pixel_theme(){
     THEME_CLONE_DIR=$2
     
     rm -rf $THEME_CLONE_DIR
-    mkdir -p $THEME_CLONE_DIR
-    echo "> Instaling theme Pixel"
-    git clone -C / $PIXEL_REPO_URL $THEME_CLONE_DIR
-    if[ $? -ne 0 ]; then
+    echo -e "\n> Instaling theme Pixel"
+    git -C / clone $PIXEL_REPO_URL $THEME_CLONE_DIR
+    if [ $? -ne 0 ]; then
         echo "Failed preparing dir $THEME_CLONE_DIR"
         return 1
     fi
